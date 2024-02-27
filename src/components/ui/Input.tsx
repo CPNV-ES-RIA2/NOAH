@@ -1,10 +1,9 @@
-import { HTMLAttributes, useRef } from "react"
+import { InputHTMLAttributes, useRef } from "react"
 import { twMerge } from "tailwind-merge"
 import { v4 as randomUUID } from 'uuid'
 
-type InputProps = HTMLAttributes<HTMLInputElement> & {
+type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     label?: string,
-    type?: "text" | "number" | "file"
 }
 export default function Input({children, label, className, type="text", ...props}: InputProps) {
     const style = "flex flex-col w-[185px]"
