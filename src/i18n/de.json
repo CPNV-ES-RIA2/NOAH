@@ -3,5 +3,7 @@
     "Max labels": "Maximale Anzahl von Etiketten",
     "Min confidence level": "Mindestvertrauensniveau",
     "Analyse": "Analysieren",
-    "Drag and drop some file here, or click to select file": "Ziehen Sie eine Datei hierher oder klicken Sie, um eine Datei auszuwählen"
+    "Drag and drop some file here, or click to select file": "Ziehen Sie eine Datei hierher oder klicken Sie, um eine Datei auszuwählen",
+    "Score" : "Punktestand",
+    "Description": "Beschreibung"
 }
