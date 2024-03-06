@@ -25,7 +25,7 @@ export default function Dropzone({children, onChange, className}: DropzoneProps)
     return (
         <div {...getRootProps()} className={twMerge(style, className)}>
             <input {...getInputProps()}/>
-            {uploadedFile ? <p>{uploadedFile.name}</p> : <p>{children || "Drag 'n' drop some files here, or click to select files"}</p>}
+            {uploadedFile ? <p className="text-center">{uploadedFile.name}</p> : <p className="text-center">{children || "Drag and drop some file here, or click to select file"}</p>}
         </div>
     )
 }
