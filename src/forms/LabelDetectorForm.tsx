@@ -3,6 +3,7 @@ import Button from "../components/ui/Button.tsx";
 import { FormEvent } from "react";
 import Dropzone from "../components/ui/Dropzone.tsx"
 import { useState, ChangeEvent } from "react";
+import { useTranslation } from 'react-i18next'
 
 export type LabelDetectorFormType = {
     file: File | null,
@@ -15,6 +16,8 @@ type LabelDetectorFormProps = {
     onSubmit?: (data: LabelDetectorFormType) => void
 }
 export default function LabelDetectorForm({onSubmit}: LabelDetectorFormProps) {
+
+    const { t } = useTranslation()
 
     const [formData, setFormData] = useState<LabelDetectorFormType>({
         file: null,
@@ -40,7 +43,9 @@ export default function LabelDetectorForm({onSubmit}: LabelDetectorFormProps) {
 
     return <form onSubmit={handleSubmit} className="w-full h-full grid grid-cols-2 gap-4">
         <div className="flex justify-center items-center">
-            <Dropzone className="max-w-[500px]" onChange={handleFileChange}/>
+            <Dropzone className="max-w-[500px]" onChange={handleFileChange}>
+                {t('Drag and drop some file here, or click to select file')}
+            </Dropzone>
         </div>
         <div className="flex justify-center">
             <div className="flex gap-4 flex-col max-w-[500px] w-full">
@@ -49,14 +54,14 @@ export default function LabelDetectorForm({onSubmit}: LabelDetectorFormProps) {
                     type="number" 
                     value={formData.maxLabels} 
                     onChange={(e) => handleInputChange(e, "maxLabels")}
-                >Max labels: </Input>
+                >{t('Max labels')}: </Input>
                 <Input 
                     className="w-full" 
                     type="number" 
                     value={formData.minConfidenceLevel} 
                     onChange={(e) => handleInputChange(e, "minConfidenceLevel")}
-                >Min confidence level: </Input>
-                <Button>Analyse</Button>
+                >{t('Min confidence level')}: </Input>
+                <Button>{t('Analyse')}</Button>
             </div>
         </div>
     </form>
