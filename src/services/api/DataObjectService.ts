@@ -1,21 +1,18 @@
 import { ApiService } from "./ApiService";
 
 type UploadProps = {
-  file: Blob,
+  file: File,
   name: string
 }
 
 export class DataObjectService extends ApiService {
 
-  public static async upload({ file, name }: UploadProps) {
+  public static async upload(props: UploadProps) {
     const endpoint = `${this.apiUrl}/upload`
     const response = await fetch(endpoint, {
       ...this.requestInit,
       method: "POST",
-      body: this.toFormData({
-        file,
-        name
-      })
+      body: this.toFormData(props)
     })
 
     if(!response.ok) await this.throwException(response)
