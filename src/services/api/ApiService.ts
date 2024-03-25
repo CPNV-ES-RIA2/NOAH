@@ -1,11 +1,10 @@
 import { ApiServiceException, NotFoundException, UnprocessableEntityException } from "@/exceptions/api/ApiServiceException"
 
 export class ApiService {
-  protected static apiUrl: string = "http://localhost:6000/api/v1"
+  protected static apiUrl: string = import.meta.env.VITE_API_URL
   protected static requestInit: RequestInit = {
     headers: {
       "accept" : "application/json",
-      "content-type": "application/json"
     }
   }
 
