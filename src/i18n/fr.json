@@ -3,5 +3,6 @@
     "Max labels" : "Labels maximum",
     "Min confidence level": "Niveau de confience minimum",
     "Analyse" : "Analyser",
-    "Drag and drop some file here, or click to select file" : "Glisser-déposer un fichier ici, ou cliquer pour sélectionner un fichier"
+    "Drag and drop some file here, or click to select file" : "Glisser-déposer un fichier ici, ou cliquer pour sélectionner un fichier",
+    "Loading": "Chargement"
 }
