@@ -18,7 +18,7 @@ export default function App() {
             setIsLoading(true)
             const { name } = await DataObjectService.upload({ file: data.file, name: data.file.name })
             const { url } = await DataObjectService.publish(name)
-            const labels = await LabelDetectorService.analyse({ image: url, maxResults: data.maxLabels, minConfidenceLevel: data.minConfidenceLevel })
+            const labels = await LabelDetectorService.analyse({ image: url, maxResults: data.maxResults, minConfidenceLevel: data.minConfidenceLevel })
             setLabels(labels)
             setIsLoading(false)
         }
