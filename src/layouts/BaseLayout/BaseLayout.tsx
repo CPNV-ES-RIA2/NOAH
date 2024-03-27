@@ -1,9 +1,9 @@
-import {ChangeEvent, PropsWithChildren} from "react";
+import {ChangeEvent} from "react";
 import Select from "../../components/ui/Select";
 import { useTranslation } from 'react-i18next'
+import { Outlet } from "react-router-dom";
 
-type BaseLayoutProps = PropsWithChildren
-export default function BaseLayout({children}: BaseLayoutProps) {
+export default function BaseLayout() {
 
     const { i18n } = useTranslation()
 
@@ -23,7 +23,7 @@ export default function BaseLayout({children}: BaseLayoutProps) {
                 </Select>
             </header>
             <main className={"h-full container mx-auto"}>
-                {children}
+                <Outlet/>
             </main>
         </>
     )
