@@ -1,4 +1,4 @@
-# Data Object Readme
+# Dashboard Readme
 ## Description
 This application is a modern, responsive frontend built with Vite and React. It provides a user-friendly interface for uploading images and retrieving associated labels. The application integrates with a backend service to process images and return their descriptive labels.
 ## Getting started
@@ -29,25 +29,65 @@ List all dependencies and their version needed by the project as :
 ## Directory structure
 ```console
 ria2_frontend
+├── Dockerfile
+├── Dockerfile.dev
 ├── LICENSE
 ├── README.md
 ├── index.html
+├── nginx.conf
 ├── package-lock.json
 ├── package.json
 ├── postcss.config.js
-├── public
-├── src
-│   ├── App.tsx
-│   ├── assets
-│   │   └── css
-│   │       └── app.css
-│   ├── main.tsx
-│   └── vite-env.d.ts
+├── public                                // Contains static assets
+│   └── vite.svg
+├── src                                   // Main source directory for the project
+│   ├── assets
+│   │   └── css
+│   │       └── app.css
+│   ├── components                        // Contains React components
+│   │   ├── LabelsDisplay.tsx
+│   │   └── ui
+│   │       ├── Button.tsx
+│   │       ├── Dropzone.tsx
+│   │       ├── Input.tsx
+│   │       ├── Loader.tsx
+│   │       └── Select.tsx
+│   ├── config                            // Configuration files and settings for the application
+│   │   └── i18n.ts
+│   ├── exceptions                        // Contains custom exception classes
+│   │   └── api
+│   │       └── ApiServiceException.ts
+│   ├── forms                             // Components related to form handling within the application
+│   │   └── LabelDetectorForm.tsx
+│   ├── i18n                              // Contains internationalization files
+│   │   ├── de.json
+│   │   ├── en.json
+│   │   └── fr.json
+│   ├── layouts                           // Contains layouts components
+│   │   └── BaseLayout
+│   │       └── BaseLayout.tsx
+│   ├── main.tsx
+│   ├── models                             // Contains models defining the shape of data used throughout the application
+│   │   └── label.ts
+│   ├── pages                              // Contains pages of the application
+│   │   └── Home.tsx
+│   ├── router                             // Router of the application
+│   │   └── router.tsx
+│   ├── services                           // Services for handling external API calls and abstracting the backend interaction logic.
+│   │   └── api
+│   │       ├── ApiService.ts
+│   │       ├── DataObjectService.ts
+│   │       └── LabelDetectorService.ts
+│   └── vite-env.d.ts
 ├── tailwind.config.js
+├── tests                                  // Contains test files
+│   ├── Dropzone.test.tsx
+│   ├── LabelDetectorForm.test.tsx
+│   ├── LabelsDisplay.test.tsx
+│   └── setup.ts
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
-
 ```
 ## Collaborate
 ### Commit Message Guidelines

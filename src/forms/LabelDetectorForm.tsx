@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 
 export type LabelDetectorFormType = {
     file: File | null,
-    maxLabels: number,
+    maxResults: number,
     minConfidenceLevel: number
 }
 
@@ -21,7 +21,7 @@ export default function LabelDetectorForm({onSubmit}: LabelDetectorFormProps) {
 
     const [formData, setFormData] = useState<LabelDetectorFormType>({
         file: null,
-        maxLabels: 8,
+        maxResults: 8,
         minConfidenceLevel: 60
     })
 
@@ -32,7 +32,7 @@ export default function LabelDetectorForm({onSubmit}: LabelDetectorFormProps) {
         }
     }
 
-    const handleFileChange = (file: File | null) => {
+    const handleFileChange = (file: File | null) => {
         setFormData((data) => ({...data, file: file}))
     }
 
@@ -49,16 +49,18 @@ export default function LabelDetectorForm({onSubmit}: LabelDetectorFormProps) {
         </div>
         <div className="flex justify-center">
             <div className="flex gap-4 flex-col max-w-[500px] w-full">
-                <Input 
-                    className="w-full" 
-                    type="number" 
-                    value={formData.maxLabels} 
-                    onChange={(e) => handleInputChange(e, "maxLabels")}
+                <Input
+                    className="w-full"
+                    type="number"
+                    min={1}
+                    value={formData.maxResults}
+                    onChange={(e) => handleInputChange(e, "maxResults")}
                 >{t('Max labels')}: </Input>
-                <Input 
-                    className="w-full" 
-                    type="number" 
-                    value={formData.minConfidenceLevel} 
+                <Input
+                    className="w-full"
+                    type="number"
+                    value={formData.minConfidenceLevel}
+                    min={0}
                     onChange={(e) => handleInputChange(e, "minConfidenceLevel")}
                 >{t('Min confidence level')}: </Input>
                 <Button>{t('Analyse')}</Button>

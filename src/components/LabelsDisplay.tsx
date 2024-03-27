@@ -18,7 +18,7 @@ export default function LabelsDisplay({ labels }: LabelsDisplayProps) {
             </thead>
             <tbody>
                 {labels.map((label, index) => (
-                    <tr>
+                    <tr key={index}>
                         <td className="p-2 border">{index}</td>
                         <td className="p-2 border">{label.description}</td>
                         <td className="p-2 border">{label.score}%</td>

@@ -1,0 +1,13 @@
+FROM node:21-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm i
+COPY . .
+CMD [ "npx", "vite", "--host" ]
+EXPOSE 5173
+
+# BUILD
+# docker build . -f Dockerfile.dev -t dashboard:dev
+
+# RUN
+# docker run -d -p 5173:5173 --name dashboard_dev dashboard:dev
