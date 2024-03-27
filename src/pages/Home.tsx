@@ -1,7 +1,6 @@
 import LabelDetectorForm, {LabelDetectorFormType} from "@/forms/LabelDetectorForm.tsx";
 import {useTranslation} from 'react-i18next'
 import LabelsDisplay from "@/components/LabelsDisplay.tsx";
-import {DataObjectService} from "@/services/api/DataObjectService.ts";
 import {LabelDetectorService} from "@/services/api/LabelDetectorService.ts";
 import {useState} from "react";
 import {Label} from "@/models/label.ts";
@@ -15,9 +14,7 @@ export default function Home() {
     const handleLabelDetectorFormSubmit = async (data: LabelDetectorFormType) => {
         if(data.file) {
             setIsLoading(true)
-            const { name } = await DataObjectService.upload({ file: data.file, name: data.file.name })
-            const { url } = await DataObjectService.publish(name)
-            const labels = await LabelDetectorService.analyse({ image: url, maxResults: data.maxResults, minConfidenceLevel: data.minConfidenceLevel })
+            const labels = await LabelDetectorService.analyse({ file: data.file, maxResults: data.maxResults, minConfidenceLevel: data.minConfidenceLevel })
             setLabels(labels)
             setIsLoading(false)
         }

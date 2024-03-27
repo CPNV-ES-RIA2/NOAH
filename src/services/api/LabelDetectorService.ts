@@ -2,7 +2,7 @@ import { Label } from "@/models/label";
 import { ApiService } from "./ApiService";
 
 type AnalyseProps = {
-  image: string,
+  file: File,
   maxResults?: number,
   minConfidenceLevel?: number
 }
@@ -15,10 +15,9 @@ export class LabelDetectorService extends ApiService {
       ...this.requestInit,
       headers: {
         "accept": "application/json",
-        "content-type": "application/json",
       },
       method: "POST",
-      body: JSON.stringify(props)
+      body: this.toFormData(props)
     })
 
     if(!response.ok) await this.throwException(response)

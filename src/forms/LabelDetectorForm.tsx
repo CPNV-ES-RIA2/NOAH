@@ -52,6 +52,7 @@ export default function LabelDetectorForm({onSubmit}: LabelDetectorFormProps) {
                 <Input
                     className="w-full"
                     type="number"
+                    min={1}
                     value={formData.maxResults}
                     onChange={(e) => handleInputChange(e, "maxResults")}
                 >{t('Max labels')}: </Input>
@@ -59,6 +60,7 @@ export default function LabelDetectorForm({onSubmit}: LabelDetectorFormProps) {
                     className="w-full"
                     type="number"
                     value={formData.minConfidenceLevel}
+                    min={0}
                     onChange={(e) => handleInputChange(e, "minConfidenceLevel")}
                 >{t('Min confidence level')}: </Input>
                 <Button>{t('Analyse')}</Button>
