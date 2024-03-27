@@ -41,7 +41,6 @@ ria2_frontend
 ├── public                                // Contains static assets
 │   └── vite.svg
 ├── src                                   // Main source directory for the project
-│   ├── App.tsx
 │   ├── assets
 │   │   └── css
 │   │       └── app.css
@@ -70,6 +69,10 @@ ria2_frontend
 │   ├── main.tsx
 │   ├── models                             // Contains models defining the shape of data used throughout the application
 │   │   └── label.ts
+│   ├── pages                              // Contains pages of the application
+│   │   └── Home.tsx
+│   ├── router                             // Router of the application
+│   │   └── router.tsx
 │   ├── services                           // Services for handling external API calls and abstracting the backend interaction logic.
 │   │   └── api
 │   │       ├── ApiService.ts
