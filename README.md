@@ -26,6 +26,26 @@ List all dependencies and their version needed by the project as :
    ```
    This step creates a `dist` folder.
 2. Deploy the contents of the dist folder to your preferred static hosting service (e.g., Netlify, Vercel, or an NGINX server).
+## Docker
+To containerize and run the application using Docker, use the following commands:
+### On dev environment
+1. Build the Docker image with the dev configuration.
+   ```
+   docker build . -f Dockerfile.dev -t dashboard:dev
+   ```
+2. Run the Docker container in detached mode, mapping the container's port 5173 to the host's port 5173.
+   ```
+   docker run -d -p 5173:5173 --name dashboard_dev dashboard:dev
+   ```
+### On integration environment
+1. Build the Docker image with the production configuration.
+   ```
+   docker build . -f Dockerfile -t dashboard:prod
+   ```
+2. Run the Docker container in detached mode, mapping the container's port 5173 to the host's port 5173.
+   ```
+   docker run -d -p 5173:5173 --name dashboard dashboard:prod
+   ```
 ## Directory structure
 ```console
 ria2_frontend
