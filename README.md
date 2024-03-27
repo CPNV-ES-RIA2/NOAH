@@ -1,4 +1,4 @@
-# Data Object Readme
+# Dashboard Readme
 ## Description
 This application is a modern, responsive frontend built with Vite and React. It provides a user-friendly interface for uploading images and retrieving associated labels. The application integrates with a backend service to process images and return their descriptive labels.
 ## Getting started
