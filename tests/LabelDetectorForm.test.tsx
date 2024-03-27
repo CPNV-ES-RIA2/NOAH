@@ -8,7 +8,7 @@ import { I18nextProvider } from 'react-i18next';
 
 describe('<LabelDetectorForm>', () => {
     const minConfidenceLevel = 60
-    const maxLabels = 8
+    const maxResults = 8
 
     it('should be rendered with default values', () => {
     //given
@@ -17,28 +17,28 @@ describe('<LabelDetectorForm>', () => {
         const { getByDisplayValue } = render(<LabelDetectorForm/>)
     //then
         getByDisplayValue(minConfidenceLevel)
-        getByDisplayValue(maxLabels)
+        getByDisplayValue(maxResults)
     })
 
     it('should submits data', async () => {
         //given
-        const newMaxLabelsValue = "10"
+        const newMaxResultsValue = "10"
         const newMinConfidenceLevelValue = "50"
         const mockHandleSubmit = vi.fn()
         //when
         const { getByDisplayValue, getByRole } = render(<LabelDetectorForm onSubmit={mockHandleSubmit}/>)
         const minConfidenceLevelInput = getByDisplayValue(minConfidenceLevel)
-        const maxLabelsInput = getByDisplayValue(maxLabels)
+        const maxResultsInput = getByDisplayValue(maxResults)
         const analyseButton = getByRole('button')
-        await userEvent.clear(maxLabelsInput)
-        await userEvent.type(maxLabelsInput, newMaxLabelsValue)
+        await userEvent.clear(maxResultsInput)
+        await userEvent.type(maxResultsInput, newMaxResultsValue)
         await userEvent.clear(minConfidenceLevelInput)
         await userEvent.type(minConfidenceLevelInput, newMinConfidenceLevelValue)
         await userEvent.click(analyseButton)
         //then
         expect(mockHandleSubmit).toHaveBeenCalledWith({
             file: null,
-            maxLabels: newMaxLabelsValue,
+            maxResults: newMaxResultsValue,
             minConfidenceLevel: newMinConfidenceLevelValue
         });
     })
